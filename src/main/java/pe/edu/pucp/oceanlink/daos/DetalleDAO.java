@@ -1,0 +1,12 @@
+package pe.edu.pucp.oceanlink.daos;
+
+import pe.edu.pucp.oceanlink.daos.DaoBase;
+
+import java.sql.*;
+import java.util.*;
+public final class DetalleDAO extends DaoBase {
+    private DetalleDAO(){}
+    public static List<String[]> filas(String sql,long... ids)throws SQLException{
+        List<String[]> out=new ArrayList<>();try(Connection c=obtenerConexion();PreparedStatement ps=c.prepareStatement(sql)){for(int i=0;i<ids.length;i++)ps.setLong(i+1,ids[i]);try(ResultSet rs=ps.executeQuery()){int n=rs.getMetaData().getColumnCount();while(rs.next()){String[] row=new String[n];for(int i=0;i<n;i++)row[i]=rs.getString(i+1);out.add(row);}}}return out;
+    }
+}

@@ -1,5 +1,7 @@
 package pe.edu.pucp.oceanlink.daos;
 
+//corroborado
+
 import pe.edu.pucp.oceanlink.validaciones.Busqueda;
 import pe.edu.pucp.oceanlink.beans.Cliente;
 import pe.edu.pucp.oceanlink.daos.Codigos;
